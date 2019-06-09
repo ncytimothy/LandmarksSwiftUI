@@ -21,8 +21,8 @@ struct ContentView : View {
                 Text("California")
                     .font(.subheadline)
             }
-            .padding() // padding room on VStack
         }
+        .padding() // padding room on VStack
     }
 }
 
