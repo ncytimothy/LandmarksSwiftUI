@@ -46,3 +46,59 @@ struct CircleImage : View {
             }
 }
 ```
+
+### Part 5: Use UIKit and SwiftUI Views Together
+```
+struct MapView : UIViewRepresentable {
+    // Wrapping UIViews in a SwiftUI view and conform to UIViewRepresentable protocol
+    // REQUIRED
+    // 1. makeUIView(context:) method that creates a view
+    // 2. updateUIView(context:) method configuring  the view and respond to any changes
+    func makeUIView(context: Context) -> MKMapView {
+        MKMapView(frame: .zero)
+        }
+
+    func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<MapView>) {
+        let coordinate =  CLLocationCoordinate2D(
+            latitude: 34.011286, longitude: -116.166868) // Turtle Rock
+        let span = MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0)
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        uiView.setRegion(region, animated: true)
+        }
+}
+```
+
+### Part 6: Putting it all together...
+
+```
+struct ContentView : View {
+    var body: some View {
+        VStack {
+            MapView()
+                .edgesIgnoringSafeArea(.top) // Ignores safeAreaLayoutGuides
+                    .frame(height: 300)
+                        // specifying only will expand the map view's width to its content (in our case, expand to all available space)
+
+            CircleImage()
+                .offset(y: -130)
+                .padding(.bottom, -130) // Move the VStack text up by 130 (as if the bottomAnchor constraint constant as 130 between CircleImage and VStack container the VStack text
+
+            VStack(alignment: .leading) { // align views in VerticalStack by leading edges
+                Text("Turtle Rock")
+                    .font(.title)
+                HStack {
+                    Text("Joshua Tree National Park")
+                    .font(.subheadline)
+                    Spacer() // Spacer expands to make its containing view use all of the space in
+                    // parent view. O/W: the views' sizes will be defined by the contents
+                    Text("California")
+                        .font(.subheadline)
+                }
+            }
+            .padding() // padding room on VStack
+
+            Spacer()
+        }
+    }
+}
+```
