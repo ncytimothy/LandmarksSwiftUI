@@ -49,6 +49,7 @@
 		C457711922ACACDE006848F4 /* LandmarksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LandmarksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C457711D22ACACDE006848F4 /* LandmarksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarksUITests.swift; sourceTree = "<group>"; };
 		C457711F22ACACDE006848F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C469999A22ACB36D001AE166 /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +80,7 @@
 		C45770EF22ACACDC006848F4 = {
 			isa = PBXGroup;
 			children = (
+				C469999A22ACB36D001AE166 /* Notes.md */,
 				C45770FA22ACACDC006848F4 /* Landmarks */,
 				C457711122ACACDE006848F4 /* LandmarksTests */,
 				C457711C22ACACDE006848F4 /* LandmarksUITests */,
